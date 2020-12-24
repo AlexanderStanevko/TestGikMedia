@@ -1,0 +1,75 @@
+<div class="sushi-page">
+  <div class="sushi-header">
+    <div class="logo">
+      <img :src="'/src/assets/Logo.png'">
+    </div>
+    <div class="menu">
+      <ul class="d-flex justify-content-between">
+        <li v-for="item in menuData">{{item}}</li>
+      </ul>
+    </div>
+    <div class="phone">
+      <span class="logo"></span>
+      <p class="number">+375 (29) 321 00 00</p>
+    </div>
+    <div class="search">
+      <b-form-input placeholder="Поиск"></b-form-input>
+      <span class="search_icon"></span>
+    </div>
+    <div class="other">
+      <span class="lang"></span>
+      <span class="person"></span>
+    </div>
+  </div>
+  <hr/>
+  <swiper class="swiper" :options="swiperOption">
+    <swiper-slide v-for="item in sliderData">
+      <img :src="item.img">
+    </swiper-slide>
+  </swiper>
+  <div class="mt-20 d-flex justify-content-between col-12">
+    <div class="search-location col-5">
+      <b-form-input placeholder="Введите адрес доставки или выберите точку самовывоза" ></b-form-input>
+      <span class="icon"></span>
+    </div>
+    <div class="info col-7">
+      <div class="info-button d-flex" v-for="item in infoButton">
+        <span :class="[item.className, 'm-auto']"></span>
+        <span class="m-auto">{{item.text}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md 4 d-flex justify-content-between mini-cards">
+    <div v-for="item in miniCards" class="wok">
+      <img :src="item.img">
+      <p>{{item.name}}</p>
+    </div>
+  </div>
+
+  <div class="catalog">
+    <div class="subcatalog">
+      <div class="header d-flex justify-content-between">
+        <h1>Раздел подкаталога</h1>
+        <div class="d-flex justify-content-between">
+          <span class="filter-icon"></span>
+          <span>Фильтры</span>
+        </div>
+      </div>
+      <div class="catalog-items">
+        <div class="item" v-for="it in catalogData">
+          <img :src="it.img"/>
+          <p class="item-name ">{{it.name}}</p>
+          <p><span>{{it.price}}</span>{{it.text}}</p>
+          <div class="d-flex justify-content-between">
+            <span class="minus"></span>
+            <span>2</span>
+            <span class="plus"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+
+    </div>
+  </div>
+</div>
